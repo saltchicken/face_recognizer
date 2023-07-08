@@ -28,6 +28,8 @@ def encode_known_faces(
     with encodings_location.open(mode="wb") as f:
         pickle.dump(name_encodings, f)
 
+# Uncomment this to create encodings for training data.
+## TODO: Check if pkl exists or add a way to opt into training
 # encode_known_faces()
 
 def recognize_faces(
@@ -67,5 +69,6 @@ def _recognize_face(unknown_encoding, loaded_encodings):
     if votes:
         return votes.most_common(1)[0][0]
 
+## TODO: Create documentation to get output for a single picture such as this
 recognize_faces("unknown.jpg")
 
